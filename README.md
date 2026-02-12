@@ -288,6 +288,17 @@ npm run generate:app-clients
   - monitoring/alerting and compliance workflows,
   - independent smart contract and application security review.
 
+## Future impletations to be done
+
+1. Manager Role: Add a second authorized address to the smart contract to delegate payout tasks without granting full withdrawal rights.
+2. Asset Registry: Update the frontend to store and manage multiple stablecoin asset IDs (e.g., USDT, EURS) rather than a single hardcoded ID.
+3. Balance Alerts: Implement a UI notification that calculates if the current vault balance is enough to cover all "Active" scheduled payouts for the upcoming month.
+4. Contractor Self-Onboarding: Create a dedicated view for contractors to connect their own wallets and execute the required asset opt-in transaction independently.
+5. Transaction Metadata: Utilize the Algorand "note" field in the deposit method to attach business labels like "Project Alpha Bonus" to on-chain records.
+6. Batch Processing: Enable the employer to group multiple pending payouts into a single atomic transaction for better efficiency.
+7. Payout Caps: Define a maximum allowable amount per payout in the contract's global state to prevent accidental or unauthorized large transfers.
+8. Secure History: Move from localStorage to a lightweight backend or decentralized storage to prevent the loss of activity logs when a browser cache is cleared.
+
 ## Contributing
 
 1. Create a feature branch.
