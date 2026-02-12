@@ -95,8 +95,8 @@ Install these before running the project:
 1. Clone and enter repo
 
 ```bash
-git clone <your-repo-url>
-cd Hackathon-QuickStart-template
+git clone https://github.com/ShreyashDabhade/PayStream.git
+cd PayStream
 ```
 
 2. Bootstrap workspace dependencies
