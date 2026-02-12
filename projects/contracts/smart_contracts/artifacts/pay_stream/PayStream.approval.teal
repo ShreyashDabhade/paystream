@@ -1,0 +1,318 @@
+#pragma version 10
+#pragma typetrack false
+
+// smart_contracts.pay_stream.contract.PayStream.__algopy_entrypoint_with_init() -> uint64:
+main:
+    intcblock 0 1 4
+    bytecblock "admin" "total_deposited"
+    txn ApplicationID
+    bnz main_after_if_else@2
+    // smart_contracts/pay_stream/contract.py:11
+    // self.admin = Txn.sender
+    bytec_0 // "admin"
+    txn Sender
+    app_global_put
+    // smart_contracts/pay_stream/contract.py:12
+    // self.total_deposited = UInt64(0)
+    bytec_1 // "total_deposited"
+    intc_0 // 0
+    app_global_put
+
+main_after_if_else@2:
+    // smart_contracts/pay_stream/contract.py:4
+    // class PayStream(ARC4Contract):
+    txn NumAppArgs
+    bz main_bare_routing@9
+    pushbytess 0x2576984e 0x93353186 0x7f663298 0xca074e92 // method "opt_in_to_asset(asset)void", method "deposit(axfer)void", method "payout(account,asset,uint64)void", method "withdraw_admin(asset,uint64)void"
+    txna ApplicationArgs 0
+    match main_opt_in_to_asset_route@5 main_deposit_route@6 main_payout_route@7 main_withdraw_admin_route@8
+
+main_after_if_else@11:
+    // smart_contracts/pay_stream/contract.py:4
+    // class PayStream(ARC4Contract):
+    intc_0 // 0
+    return
+
+main_withdraw_admin_route@8:
+    // smart_contracts/pay_stream/contract.py:53
+    // @abimethod
+    txn OnCompletion
+    !
+    assert // OnCompletion is not NoOp
+    txn ApplicationID
+    assert // can only call when not creating
+    // smart_contracts/pay_stream/contract.py:4
+    // class PayStream(ARC4Contract):
+    txna ApplicationArgs 1
+    btoi
+    txnas Assets
+    txna ApplicationArgs 2
+    btoi
+    // smart_contracts/pay_stream/contract.py:53
+    // @abimethod
+    callsub withdraw_admin
+    intc_1 // 1
+    return
+
+main_payout_route@7:
+    // smart_contracts/pay_stream/contract.py:38
+    // @abimethod
+    txn OnCompletion
+    !
+    assert // OnCompletion is not NoOp
+    txn ApplicationID
+    assert // can only call when not creating
+    // smart_contracts/pay_stream/contract.py:4
+    // class PayStream(ARC4Contract):
+    txna ApplicationArgs 1
+    btoi
+    txnas Accounts
+    txna ApplicationArgs 2
+    btoi
+    txnas Assets
+    txna ApplicationArgs 3
+    btoi
+    // smart_contracts/pay_stream/contract.py:38
+    // @abimethod
+    callsub payout
+    intc_1 // 1
+    return
+
+main_deposit_route@6:
+    // smart_contracts/pay_stream/contract.py:28
+    // @abimethod
+    txn OnCompletion
+    !
+    assert // OnCompletion is not NoOp
+    txn ApplicationID
+    assert // can only call when not creating
+    // smart_contracts/pay_stream/contract.py:4
+    // class PayStream(ARC4Contract):
+    txn GroupIndex
+    intc_1 // 1
+    -
+    dup
+    gtxns TypeEnum
+    intc_2 // axfer
+    ==
+    assert // transaction type is axfer
+    // smart_contracts/pay_stream/contract.py:28
+    // @abimethod
+    callsub deposit
+    intc_1 // 1
+    return
+
+main_opt_in_to_asset_route@5:
+    // smart_contracts/pay_stream/contract.py:14
+    // @abimethod(allow_actions=["OptIn"])
+    txn OnCompletion
+    intc_1 // OptIn
+    ==
+    assert // OnCompletion is not OptIn
+    txn ApplicationID
+    assert // can only call when not creating
+    // smart_contracts/pay_stream/contract.py:4
+    // class PayStream(ARC4Contract):
+    txna ApplicationArgs 1
+    btoi
+    txnas Assets
+    // smart_contracts/pay_stream/contract.py:14
+    // @abimethod(allow_actions=["OptIn"])
+    callsub opt_in_to_asset
+    intc_1 // 1
+    return
+
+main_bare_routing@9:
+    // smart_contracts/pay_stream/contract.py:4
+    // class PayStream(ARC4Contract):
+    txn OnCompletion
+    bnz main_after_if_else@11
+    txn ApplicationID
+    !
+    assert // can only call when creating
+    intc_1 // 1
+    return
+
+
+// smart_contracts.pay_stream.contract.PayStream.opt_in_to_asset(asset: uint64) -> void:
+opt_in_to_asset:
+    // smart_contracts/pay_stream/contract.py:14-15
+    // @abimethod(allow_actions=["OptIn"])
+    // def opt_in_to_asset(self, asset: Asset) -> None:
+    proto 1 0
+    // smart_contracts/pay_stream/contract.py:20
+    // assert Txn.sender == self.admin, "Only admin can opt-in to assets"
+    txn Sender
+    intc_0 // 0
+    bytec_0 // "admin"
+    app_global_get_ex
+    assert // check self.admin exists
+    ==
+    assert // Only admin can opt-in to assets
+    // smart_contracts/pay_stream/contract.py:21-26
+    // itxn.AssetTransfer(
+    //     xfer_asset=asset,
+    //     asset_receiver=Global.current_application_address,
+    //     asset_amount=0,
+    //     fee=0 # Fee must be covered by the outer transaction
+    // ).submit()
+    itxn_begin
+    // smart_contracts/pay_stream/contract.py:23
+    // asset_receiver=Global.current_application_address,
+    global CurrentApplicationAddress
+    // smart_contracts/pay_stream/contract.py:24
+    // asset_amount=0,
+    intc_0 // 0
+    itxn_field AssetAmount
+    itxn_field AssetReceiver
+    frame_dig -1
+    itxn_field XferAsset
+    // smart_contracts/pay_stream/contract.py:21
+    // itxn.AssetTransfer(
+    intc_2 // axfer
+    itxn_field TypeEnum
+    // smart_contracts/pay_stream/contract.py:25
+    // fee=0 # Fee must be covered by the outer transaction
+    intc_0 // 0
+    itxn_field Fee
+    // smart_contracts/pay_stream/contract.py:21-26
+    // itxn.AssetTransfer(
+    //     xfer_asset=asset,
+    //     asset_receiver=Global.current_application_address,
+    //     asset_amount=0,
+    //     fee=0 # Fee must be covered by the outer transaction
+    // ).submit()
+    itxn_submit
+    retsub
+
+
+// smart_contracts.pay_stream.contract.PayStream.deposit(txn: uint64) -> void:
+deposit:
+    // smart_contracts/pay_stream/contract.py:28-29
+    // @abimethod
+    // def deposit(self, txn: gtxn.AssetTransferTransaction) -> None:
+    proto 1 0
+    // smart_contracts/pay_stream/contract.py:35
+    // assert txn.asset_receiver == Global.current_application_address, "Deposit must be to this contract"
+    frame_dig -1
+    gtxns AssetReceiver
+    global CurrentApplicationAddress
+    ==
+    assert // Deposit must be to this contract
+    // smart_contracts/pay_stream/contract.py:36
+    // self.total_deposited += txn.asset_amount
+    intc_0 // 0
+    bytec_1 // "total_deposited"
+    app_global_get_ex
+    assert // check self.total_deposited exists
+    frame_dig -1
+    gtxns AssetAmount
+    +
+    bytec_1 // "total_deposited"
+    swap
+    app_global_put
+    retsub
+
+
+// smart_contracts.pay_stream.contract.PayStream.payout(recipient: bytes, asset: uint64, amount: uint64) -> void:
+payout:
+    // smart_contracts/pay_stream/contract.py:38-39
+    // @abimethod
+    // def payout(self, recipient: Account, asset: Asset, amount: UInt64) -> None:
+    proto 3 0
+    // smart_contracts/pay_stream/contract.py:43
+    // assert Txn.sender == self.admin, "Only admin can initiate payouts"
+    txn Sender
+    intc_0 // 0
+    bytec_0 // "admin"
+    app_global_get_ex
+    assert // check self.admin exists
+    ==
+    assert // Only admin can initiate payouts
+    // smart_contracts/pay_stream/contract.py:45-51
+    // # Inner Transaction: Send USDCa to contractor
+    // itxn.AssetTransfer(
+    //     xfer_asset=asset,
+    //     asset_receiver=recipient,
+    //     asset_amount=amount,
+    //     fee=0 # Employer pays the fee
+    // ).submit()
+    itxn_begin
+    frame_dig -1
+    itxn_field AssetAmount
+    frame_dig -3
+    itxn_field AssetReceiver
+    frame_dig -2
+    itxn_field XferAsset
+    // smart_contracts/pay_stream/contract.py:45-46
+    // # Inner Transaction: Send USDCa to contractor
+    // itxn.AssetTransfer(
+    intc_2 // axfer
+    itxn_field TypeEnum
+    // smart_contracts/pay_stream/contract.py:50
+    // fee=0 # Employer pays the fee
+    intc_0 // 0
+    itxn_field Fee
+    // smart_contracts/pay_stream/contract.py:45-51
+    // # Inner Transaction: Send USDCa to contractor
+    // itxn.AssetTransfer(
+    //     xfer_asset=asset,
+    //     asset_receiver=recipient,
+    //     asset_amount=amount,
+    //     fee=0 # Employer pays the fee
+    // ).submit()
+    itxn_submit
+    retsub
+
+
+// smart_contracts.pay_stream.contract.PayStream.withdraw_admin(asset: uint64, amount: uint64) -> void:
+withdraw_admin:
+    // smart_contracts/pay_stream/contract.py:53-54
+    // @abimethod
+    // def withdraw_admin(self, asset: Asset, amount: UInt64) -> None:
+    proto 2 0
+    // smart_contracts/pay_stream/contract.py:58
+    // assert Txn.sender == self.admin, "Only admin can withdraw"
+    txn Sender
+    intc_0 // 0
+    bytec_0 // "admin"
+    app_global_get_ex
+    assert // check self.admin exists
+    ==
+    assert // Only admin can withdraw
+    // smart_contracts/pay_stream/contract.py:59-64
+    // itxn.AssetTransfer(
+    //     xfer_asset=asset,
+    //     asset_receiver=self.admin,
+    //     asset_amount=amount,
+    //     fee=0
+    // ).submit()
+    itxn_begin
+    // smart_contracts/pay_stream/contract.py:61
+    // asset_receiver=self.admin,
+    intc_0 // 0
+    bytec_0 // "admin"
+    app_global_get_ex
+    assert // check self.admin exists
+    frame_dig -1
+    itxn_field AssetAmount
+    itxn_field AssetReceiver
+    frame_dig -2
+    itxn_field XferAsset
+    // smart_contracts/pay_stream/contract.py:59
+    // itxn.AssetTransfer(
+    intc_2 // axfer
+    itxn_field TypeEnum
+    // smart_contracts/pay_stream/contract.py:63
+    // fee=0
+    intc_0 // 0
+    itxn_field Fee
+    // smart_contracts/pay_stream/contract.py:59-64
+    // itxn.AssetTransfer(
+    //     xfer_asset=asset,
+    //     asset_receiver=self.admin,
+    //     asset_amount=amount,
+    //     fee=0
+    // ).submit()
+    itxn_submit
+    retsub

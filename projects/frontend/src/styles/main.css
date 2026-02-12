@@ -1,0 +1,398 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --gh-bg: #0d1117;
+  --gh-panel: #161b22;
+  --gh-panel-alt: #0f141b;
+  --gh-border: #30363d;
+  --gh-text: #c9d1d9;
+  --gh-muted: #8b949e;
+  --gh-accent: #58a6ff;
+  --gh-success: #3fb950;
+  --gh-warning: #d29922;
+  --gh-danger: #f85149;
+  --gh-focus: rgba(56, 139, 253, 0.35);
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family:
+    'Instrument Sans',
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    sans-serif;
+  color: var(--gh-text);
+  background:
+    radial-gradient(1200px 700px at 10% -20%, rgba(88, 166, 255, 0.13) 0%, transparent 60%),
+    radial-gradient(1100px 620px at 100% 110%, rgba(63, 185, 80, 0.1) 0%, transparent 64%),
+    linear-gradient(180deg, #0a0e14 0%, #0d1117 42%, #0b1017 100%);
+}
+
+.font-mono,
+code,
+pre {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.paystream-page {
+  position: relative;
+  isolation: isolate;
+}
+
+.paystream-page::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(139, 148, 158, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(139, 148, 158, 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.45;
+}
+
+.paystream-page::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(1200px 760px at 50% 0%, transparent 0%, rgba(0, 0, 0, 0.45) 100%);
+}
+
+.paystream-app {
+  position: relative;
+  z-index: 1;
+}
+
+.paystream-shell {
+  position: relative;
+  padding-top: 44px;
+  border-radius: 18px;
+  border: 1px solid var(--gh-border) !important;
+  background: linear-gradient(180deg, rgba(22, 27, 34, 0.98) 0%, rgba(13, 17, 23, 0.98) 100%) !important;
+  color: var(--gh-text) !important;
+  box-shadow:
+    0 26px 80px rgba(0, 0, 0, 0.58),
+    inset 0 1px 0 rgba(240, 246, 252, 0.05);
+  overflow: hidden;
+}
+
+.paystream-shell::before {
+  content: 'paystream-dashboard.tsx';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  padding-left: 78px;
+  border-bottom: 1px solid var(--gh-border);
+  background: linear-gradient(180deg, #21262d 0%, #1b2027 100%);
+  color: var(--gh-muted);
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 12px;
+  letter-spacing: 0.01em;
+}
+
+.paystream-shell::after {
+  content: '';
+  position: absolute;
+  top: 16px;
+  left: 18px;
+  width: 11px;
+  height: 11px;
+  border-radius: 9999px;
+  background: #ff5f56;
+  box-shadow: 17px 0 0 #ffbd2e, 34px 0 0 #27c93f;
+}
+
+.paystream-hero {
+  position: relative;
+  border-bottom: 1px solid var(--gh-border) !important;
+  background: linear-gradient(180deg, rgba(31, 42, 56, 0.52) 0%, rgba(22, 27, 34, 0.48) 100%) !important;
+}
+
+.paystream-title {
+  color: #f0f6fc;
+  letter-spacing: -0.01em;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.paystream-subtitle {
+  color: var(--gh-muted) !important;
+}
+
+.paystream-wallet-chip {
+  border-color: rgba(88, 166, 255, 0.45) !important;
+  background: rgba(56, 139, 253, 0.16) !important;
+  color: #cfe7ff;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-weight: 600;
+}
+
+.paystream-hero-stat {
+  border: 1px solid rgba(88, 166, 255, 0.28);
+  border-radius: 10px;
+  background: rgba(13, 17, 23, 0.72);
+  color: #a5d6ff;
+}
+
+.paystream-shell .tabs-boxed {
+  border: 1px solid var(--gh-border);
+  border-radius: 11px;
+  background: rgba(13, 17, 23, 0.62) !important;
+  padding: 4px;
+}
+
+.paystream-shell .tab {
+  border-radius: 8px;
+  color: var(--gh-muted);
+  font-weight: 600;
+  transition: background-color 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.paystream-shell .tab:hover {
+  color: #dbe6f3;
+  transform: translateY(-1px);
+}
+
+.paystream-shell .tab.tab-active {
+  background: rgba(31, 111, 235, 0.24);
+  color: #dbeafe;
+  box-shadow: inset 0 0 0 1px rgba(88, 166, 255, 0.5);
+}
+
+.paystream-shell .rounded-xl.border,
+.paystream-shell .rounded.border,
+.paystream-shell .rounded-lg.border {
+  border-color: var(--gh-border) !important;
+  background: linear-gradient(180deg, rgba(22, 27, 34, 0.9) 0%, rgba(15, 20, 27, 0.9) 100%) !important;
+  box-shadow: inset 0 1px 0 rgba(240, 246, 252, 0.04);
+}
+
+.paystream-shell .bg-white\/80,
+.paystream-shell .bg-white\/70,
+.paystream-shell .bg-white {
+  background: rgba(17, 22, 29, 0.82) !important;
+}
+
+.paystream-shell .btn {
+  border-radius: 8px;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: none;
+  transition: transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease;
+}
+
+.paystream-shell .btn:enabled:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.36);
+}
+
+.paystream-shell .btn-primary {
+  border-color: transparent !important;
+  background: linear-gradient(180deg, #2ea043 0%, #238636 100%) !important;
+  color: #f0f6fc !important;
+}
+
+.paystream-shell .btn-success {
+  border-color: transparent !important;
+  background: linear-gradient(180deg, #1f6feb 0%, #1158c7 100%) !important;
+  color: #f0f6fc !important;
+}
+
+.paystream-shell .btn-accent {
+  border-color: transparent !important;
+  background: linear-gradient(180deg, #388bfd 0%, #1f6feb 100%) !important;
+  color: #f0f6fc !important;
+}
+
+.paystream-shell .btn-outline {
+  border-color: #3d444d !important;
+  background: rgba(27, 33, 41, 0.75) !important;
+  color: var(--gh-text) !important;
+}
+
+.paystream-shell .btn-outline:hover {
+  border-color: rgba(88, 166, 255, 0.62) !important;
+  background: rgba(31, 111, 235, 0.16) !important;
+}
+
+.paystream-shell .btn-error {
+  border-color: rgba(248, 81, 73, 0.5) !important;
+  background: rgba(248, 81, 73, 0.14) !important;
+  color: #ffb3ad !important;
+}
+
+.paystream-shell .input,
+.paystream-shell .select {
+  border-color: #3d444d !important;
+  background: rgba(13, 17, 23, 0.86) !important;
+  color: #e6edf3 !important;
+}
+
+.paystream-shell .input::placeholder {
+  color: #8b949e;
+}
+
+.paystream-shell .input:focus,
+.paystream-shell .select:focus,
+.paystream-shell .input:focus-visible,
+.paystream-shell .select:focus-visible {
+  outline: none;
+  border-color: rgba(88, 166, 255, 0.8) !important;
+  box-shadow: 0 0 0 3px var(--gh-focus);
+}
+
+.paystream-shell .table :where(th, td) {
+  border-color: rgba(48, 54, 61, 0.8);
+}
+
+.paystream-shell .table th {
+  color: var(--gh-muted);
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.paystream-shell .table td {
+  color: var(--gh-text);
+}
+
+.paystream-shell .table tbody tr:hover {
+  background: rgba(56, 139, 253, 0.09);
+}
+
+.paystream-shell .table-zebra tbody tr:nth-child(even) td,
+.paystream-shell .table-zebra tbody tr:nth-child(even) th {
+  background: rgba(13, 17, 23, 0.68);
+}
+
+.paystream-shell .badge {
+  border-width: 1px;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-weight: 600;
+}
+
+.paystream-shell .badge-success {
+  border-color: rgba(63, 185, 80, 0.46);
+  background: rgba(63, 185, 80, 0.14);
+  color: #7ee787;
+}
+
+.paystream-shell .badge-warning {
+  border-color: rgba(210, 153, 34, 0.5);
+  background: rgba(210, 153, 34, 0.16);
+  color: #f2cc60;
+}
+
+.paystream-shell .link-info {
+  color: var(--gh-accent);
+}
+
+.paystream-shell .link-info:hover {
+  color: #79c0ff;
+}
+
+.paystream-shell .text-slate-800,
+.paystream-shell .text-slate-700,
+.paystream-shell .text-slate-600 {
+  color: var(--gh-text) !important;
+}
+
+.paystream-shell .text-slate-500,
+.paystream-shell .text-slate-400 {
+  color: var(--gh-muted) !important;
+}
+
+.paystream-shell .text-cyan-700,
+.paystream-shell .text-cyan-800 {
+  color: #79c0ff !important;
+}
+
+.paystream-shell .bg-cyan-50 {
+  background: rgba(31, 111, 235, 0.15) !important;
+}
+
+.paystream-shell .border-cyan-200 {
+  border-color: rgba(88, 166, 255, 0.48) !important;
+}
+
+.paystream-shell .text-cyan-800 {
+  color: #cfe7ff !important;
+}
+
+.paystream-shell .bg-amber-50 {
+  background: rgba(210, 153, 34, 0.16) !important;
+}
+
+.paystream-shell .border-amber-200 {
+  border-color: rgba(210, 153, 34, 0.56) !important;
+}
+
+.paystream-shell .text-amber-900,
+.paystream-shell .text-amber-800 {
+  color: #f2cc60 !important;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .paystream-shell {
+    animation: terminal-fade-in 360ms ease-out;
+  }
+}
+
+@keyframes terminal-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .paystream-app {
+    padding-top: 1rem;
+    padding-bottom: 1.25rem;
+  }
+
+  .paystream-shell {
+    padding-top: 40px;
+    border-radius: 14px;
+  }
+
+  .paystream-shell::before {
+    height: 40px;
+    padding-left: 66px;
+    font-size: 11px;
+  }
+
+  .paystream-shell::after {
+    top: 14px;
+    left: 14px;
+  }
+
+  .paystream-hero {
+    padding: 1rem !important;
+  }
+}

@@ -1,0 +1,1296 @@
+{
+  "version": 3,
+  "sources": [
+    "../../pay_stream/contract.py"
+  ],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAUQ;AAAa;;AAAb;AACA;AAAuB;AAAvB;AARR;;AAAA;;;AAAA;;;;;;;;;;;;;;;;;;;;;;AAAA;;;AAAA;;;;;;;;;;AAAA;;AAiDK;;AAAA;AAAA;AAAA;;AAAA;AAjDL;;;AAAA;AAAA;;AAAA;;;AAAA;AAiDK;;;AAAA;;AAfA;;AAAA;AAAA;AAAA;;AAAA;AAlCL;;;AAAA;AAAA;;AAAA;;;AAAA;AAAA;;AAAA;;;AAAA;AAkCK;;;AAAA;;AAVA;;AAAA;AAAA;AAAA;;AAAA;AAxBL;;AAAA;AAAA;AAAA;AAAA;;AAAA;AAAA;AAAA;AAwBK;;;AAAA;;AAdA;;AAAA;AAAA;AAAA;AAAA;;AAAA;AAVL;;;AAAA;AAAA;;AAUK;;;AAAA;;AAVL;;AAAA;;;;;;;;;AAUA;;;AAMe;;AAAc;AAAA;AAAA;AAAA;AAAd;AAAP;AACA;AAEmB;;AACF;;;;;;;;;AAHjB;;;AAIQ;;;AAJR;;AAOR;;;AAOe;;AAAA;;AAAsB;;AAAtB;AAAP;AACA;AAAA;AAAA;AAAA;AAAwB;;AAAA;;AAAxB;AAAA;AAAA;AAAA;;AAER;;;AAKe;;AAAc;AAAA;AAAA;AAAA;AAAd;AAAP;AAGA;;;;;;;;;;;;;AAAA;;;AAIQ;;;AAJR;;AAOR;;;AAKe;;AAAc;AAAA;AAAA;AAAA;AAAd;AAAP;AACA;AAEmB;AAAA;AAAA;AAAA;;;;;;;;;;;AAFnB;;;AAIQ;;;AAJR;",
+  "op_pc_offset": 0,
+  "pc_events": {
+    "1": {
+      "subroutine": "smart_contracts.pay_stream.contract.PayStream.__algopy_entrypoint_with_init",
+      "params": {},
+      "block": "main",
+      "stack_in": [],
+      "op": "intcblock 0 1 4"
+    },
+    "6": {
+      "op": "bytecblock \"admin\" \"total_deposited\""
+    },
+    "30": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "32": {
+      "op": "bnz main_after_if_else@2",
+      "stack_out": []
+    },
+    "35": {
+      "op": "bytec_0 // \"admin\"",
+      "defined_out": [
+        "\"admin\""
+      ],
+      "stack_out": [
+        "\"admin\""
+      ]
+    },
+    "36": {
+      "op": "txn Sender",
+      "defined_out": [
+        "\"admin\"",
+        "new_state_value%0#0"
+      ],
+      "stack_out": [
+        "\"admin\"",
+        "new_state_value%0#0"
+      ]
+    },
+    "38": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "39": {
+      "op": "bytec_1 // \"total_deposited\"",
+      "defined_out": [
+        "\"total_deposited\""
+      ],
+      "stack_out": [
+        "\"total_deposited\""
+      ]
+    },
+    "40": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "\"total_deposited\"",
+        "0"
+      ],
+      "stack_out": [
+        "\"total_deposited\"",
+        "0"
+      ]
+    },
+    "41": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "42": {
+      "block": "main_after_if_else@2",
+      "stack_in": [],
+      "op": "txn NumAppArgs",
+      "defined_out": [
+        "tmp%0#2"
+      ],
+      "stack_out": [
+        "tmp%0#2"
+      ]
+    },
+    "44": {
+      "op": "bz main_bare_routing@9",
+      "stack_out": []
+    },
+    "47": {
+      "op": "pushbytess 0x2576984e 0x93353186 0x7f663298 0xca074e92 // method \"opt_in_to_asset(asset)void\", method \"deposit(axfer)void\", method \"payout(account,asset,uint64)void\", method \"withdraw_admin(asset,uint64)void\"",
+      "defined_out": [
+        "Method(deposit(axfer)void)",
+        "Method(opt_in_to_asset(asset)void)",
+        "Method(payout(account,asset,uint64)void)",
+        "Method(withdraw_admin(asset,uint64)void)"
+      ],
+      "stack_out": [
+        "Method(opt_in_to_asset(asset)void)",
+        "Method(deposit(axfer)void)",
+        "Method(payout(account,asset,uint64)void)",
+        "Method(withdraw_admin(asset,uint64)void)"
+      ]
+    },
+    "69": {
+      "op": "txna ApplicationArgs 0",
+      "defined_out": [
+        "Method(deposit(axfer)void)",
+        "Method(opt_in_to_asset(asset)void)",
+        "Method(payout(account,asset,uint64)void)",
+        "Method(withdraw_admin(asset,uint64)void)",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "Method(opt_in_to_asset(asset)void)",
+        "Method(deposit(axfer)void)",
+        "Method(payout(account,asset,uint64)void)",
+        "Method(withdraw_admin(asset,uint64)void)",
+        "tmp%2#0"
+      ]
+    },
+    "72": {
+      "op": "match main_opt_in_to_asset_route@5 main_deposit_route@6 main_payout_route@7 main_withdraw_admin_route@8",
+      "stack_out": []
+    },
+    "82": {
+      "block": "main_after_if_else@11",
+      "stack_in": [],
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "83": {
+      "op": "return",
+      "stack_out": []
+    },
+    "84": {
+      "block": "main_withdraw_admin_route@8",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%23#0"
+      ],
+      "stack_out": [
+        "tmp%23#0"
+      ]
+    },
+    "86": {
+      "op": "!",
+      "defined_out": [
+        "tmp%24#0"
+      ],
+      "stack_out": [
+        "tmp%24#0"
+      ]
+    },
+    "87": {
+      "error": "OnCompletion is not NoOp",
+      "op": "assert // OnCompletion is not NoOp",
+      "stack_out": []
+    },
+    "88": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%25#0"
+      ],
+      "stack_out": [
+        "tmp%25#0"
+      ]
+    },
+    "90": {
+      "error": "can only call when not creating",
+      "op": "assert // can only call when not creating",
+      "stack_out": []
+    },
+    "91": {
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "reinterpret_bytes[1]%3#0"
+      ],
+      "stack_out": [
+        "reinterpret_bytes[1]%3#0"
+      ]
+    },
+    "94": {
+      "op": "btoi",
+      "defined_out": [
+        "tmp%27#0"
+      ],
+      "stack_out": [
+        "tmp%27#0"
+      ]
+    },
+    "95": {
+      "op": "txnas Assets",
+      "defined_out": [
+        "tmp%28#0"
+      ],
+      "stack_out": [
+        "tmp%28#0"
+      ]
+    },
+    "97": {
+      "op": "txna ApplicationArgs 2",
+      "defined_out": [
+        "reinterpret_bytes[8]%1#0",
+        "tmp%28#0"
+      ],
+      "stack_out": [
+        "tmp%28#0",
+        "reinterpret_bytes[8]%1#0"
+      ]
+    },
+    "100": {
+      "op": "btoi",
+      "defined_out": [
+        "tmp%28#0",
+        "tmp%29#0"
+      ],
+      "stack_out": [
+        "tmp%28#0",
+        "tmp%29#0"
+      ]
+    },
+    "101": {
+      "callsub": "smart_contracts.pay_stream.contract.PayStream.withdraw_admin",
+      "op": "callsub withdraw_admin",
+      "stack_out": []
+    },
+    "104": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "105": {
+      "op": "return",
+      "stack_out": []
+    },
+    "106": {
+      "block": "main_payout_route@7",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%14#0"
+      ],
+      "stack_out": [
+        "tmp%14#0"
+      ]
+    },
+    "108": {
+      "op": "!",
+      "defined_out": [
+        "tmp%15#0"
+      ],
+      "stack_out": [
+        "tmp%15#0"
+      ]
+    },
+    "109": {
+      "error": "OnCompletion is not NoOp",
+      "op": "assert // OnCompletion is not NoOp",
+      "stack_out": []
+    },
+    "110": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%16#0"
+      ],
+      "stack_out": [
+        "tmp%16#0"
+      ]
+    },
+    "112": {
+      "error": "can only call when not creating",
+      "op": "assert // can only call when not creating",
+      "stack_out": []
+    },
+    "113": {
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "reinterpret_bytes[1]%1#0"
+      ],
+      "stack_out": [
+        "reinterpret_bytes[1]%1#0"
+      ]
+    },
+    "116": {
+      "op": "btoi",
+      "defined_out": [
+        "tmp%18#0"
+      ],
+      "stack_out": [
+        "tmp%18#0"
+      ]
+    },
+    "117": {
+      "op": "txnas Accounts",
+      "defined_out": [
+        "tmp%19#0"
+      ],
+      "stack_out": [
+        "tmp%19#0"
+      ]
+    },
+    "119": {
+      "op": "txna ApplicationArgs 2",
+      "defined_out": [
+        "reinterpret_bytes[1]%2#0",
+        "tmp%19#0"
+      ],
+      "stack_out": [
+        "tmp%19#0",
+        "reinterpret_bytes[1]%2#0"
+      ]
+    },
+    "122": {
+      "op": "btoi",
+      "defined_out": [
+        "tmp%19#0",
+        "tmp%20#0"
+      ],
+      "stack_out": [
+        "tmp%19#0",
+        "tmp%20#0"
+      ]
+    },
+    "123": {
+      "op": "txnas Assets",
+      "defined_out": [
+        "tmp%19#0",
+        "tmp%21#0"
+      ],
+      "stack_out": [
+        "tmp%19#0",
+        "tmp%21#0"
+      ]
+    },
+    "125": {
+      "op": "txna ApplicationArgs 3",
+      "defined_out": [
+        "reinterpret_bytes[8]%0#0",
+        "tmp%19#0",
+        "tmp%21#0"
+      ],
+      "stack_out": [
+        "tmp%19#0",
+        "tmp%21#0",
+        "reinterpret_bytes[8]%0#0"
+      ]
+    },
+    "128": {
+      "op": "btoi",
+      "defined_out": [
+        "tmp%19#0",
+        "tmp%21#0",
+        "tmp%22#0"
+      ],
+      "stack_out": [
+        "tmp%19#0",
+        "tmp%21#0",
+        "tmp%22#0"
+      ]
+    },
+    "129": {
+      "callsub": "smart_contracts.pay_stream.contract.PayStream.payout",
+      "op": "callsub payout",
+      "stack_out": []
+    },
+    "132": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "133": {
+      "op": "return",
+      "stack_out": []
+    },
+    "134": {
+      "block": "main_deposit_route@6",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%9#0"
+      ],
+      "stack_out": [
+        "tmp%9#0"
+      ]
+    },
+    "136": {
+      "op": "!",
+      "defined_out": [
+        "tmp%10#0"
+      ],
+      "stack_out": [
+        "tmp%10#0"
+      ]
+    },
+    "137": {
+      "error": "OnCompletion is not NoOp",
+      "op": "assert // OnCompletion is not NoOp",
+      "stack_out": []
+    },
+    "138": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%11#0"
+      ],
+      "stack_out": [
+        "tmp%11#0"
+      ]
+    },
+    "140": {
+      "error": "can only call when not creating",
+      "op": "assert // can only call when not creating",
+      "stack_out": []
+    },
+    "141": {
+      "op": "txn GroupIndex",
+      "defined_out": [
+        "tmp%13#0"
+      ],
+      "stack_out": [
+        "tmp%13#0"
+      ]
+    },
+    "143": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "1",
+        "tmp%13#0"
+      ],
+      "stack_out": [
+        "tmp%13#0",
+        "1"
+      ]
+    },
+    "144": {
+      "op": "-",
+      "defined_out": [
+        "gtxn_idx%0#0"
+      ],
+      "stack_out": [
+        "gtxn_idx%0#0"
+      ]
+    },
+    "145": {
+      "op": "dup",
+      "defined_out": [
+        "gtxn_idx%0#0",
+        "gtxn_idx%0#0 (copy)"
+      ],
+      "stack_out": [
+        "gtxn_idx%0#0",
+        "gtxn_idx%0#0 (copy)"
+      ]
+    },
+    "146": {
+      "op": "gtxns TypeEnum",
+      "defined_out": [
+        "gtxn_idx%0#0",
+        "gtxn_type%0#0"
+      ],
+      "stack_out": [
+        "gtxn_idx%0#0",
+        "gtxn_type%0#0"
+      ]
+    },
+    "148": {
+      "op": "intc_2 // axfer",
+      "defined_out": [
+        "axfer",
+        "gtxn_idx%0#0",
+        "gtxn_type%0#0"
+      ],
+      "stack_out": [
+        "gtxn_idx%0#0",
+        "gtxn_type%0#0",
+        "axfer"
+      ]
+    },
+    "149": {
+      "op": "==",
+      "defined_out": [
+        "gtxn_idx%0#0",
+        "gtxn_type_matches%0#0"
+      ],
+      "stack_out": [
+        "gtxn_idx%0#0",
+        "gtxn_type_matches%0#0"
+      ]
+    },
+    "150": {
+      "error": "transaction type is axfer",
+      "op": "assert // transaction type is axfer",
+      "stack_out": [
+        "gtxn_idx%0#0"
+      ]
+    },
+    "151": {
+      "callsub": "smart_contracts.pay_stream.contract.PayStream.deposit",
+      "op": "callsub deposit",
+      "stack_out": []
+    },
+    "154": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "155": {
+      "op": "return",
+      "stack_out": []
+    },
+    "156": {
+      "block": "main_opt_in_to_asset_route@5",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "tmp%3#0"
+      ]
+    },
+    "158": {
+      "op": "intc_1 // OptIn",
+      "defined_out": [
+        "OptIn",
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "OptIn"
+      ]
+    },
+    "159": {
+      "op": "==",
+      "defined_out": [
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "tmp%4#0"
+      ]
+    },
+    "160": {
+      "error": "OnCompletion is not OptIn",
+      "op": "assert // OnCompletion is not OptIn",
+      "stack_out": []
+    },
+    "161": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%5#0"
+      ],
+      "stack_out": [
+        "tmp%5#0"
+      ]
+    },
+    "163": {
+      "error": "can only call when not creating",
+      "op": "assert // can only call when not creating",
+      "stack_out": []
+    },
+    "164": {
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "reinterpret_bytes[1]%0#0"
+      ],
+      "stack_out": [
+        "reinterpret_bytes[1]%0#0"
+      ]
+    },
+    "167": {
+      "op": "btoi",
+      "defined_out": [
+        "tmp%7#0"
+      ],
+      "stack_out": [
+        "tmp%7#0"
+      ]
+    },
+    "168": {
+      "op": "txnas Assets",
+      "defined_out": [
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "tmp%8#0"
+      ]
+    },
+    "170": {
+      "callsub": "smart_contracts.pay_stream.contract.PayStream.opt_in_to_asset",
+      "op": "callsub opt_in_to_asset",
+      "stack_out": []
+    },
+    "173": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "174": {
+      "op": "return",
+      "stack_out": []
+    },
+    "175": {
+      "block": "main_bare_routing@9",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%30#0"
+      ],
+      "stack_out": [
+        "tmp%30#0"
+      ]
+    },
+    "177": {
+      "op": "bnz main_after_if_else@11",
+      "stack_out": []
+    },
+    "180": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%31#0"
+      ],
+      "stack_out": [
+        "tmp%31#0"
+      ]
+    },
+    "182": {
+      "op": "!",
+      "defined_out": [
+        "tmp%32#0"
+      ],
+      "stack_out": [
+        "tmp%32#0"
+      ]
+    },
+    "183": {
+      "error": "can only call when creating",
+      "op": "assert // can only call when creating",
+      "stack_out": []
+    },
+    "184": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "185": {
+      "op": "return",
+      "stack_out": []
+    },
+    "186": {
+      "subroutine": "smart_contracts.pay_stream.contract.PayStream.opt_in_to_asset",
+      "params": {
+        "asset#0": "uint64"
+      },
+      "block": "opt_in_to_asset",
+      "stack_in": [],
+      "op": "proto 1 0"
+    },
+    "189": {
+      "op": "txn Sender",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "191": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "0"
+      ]
+    },
+    "192": {
+      "op": "bytec_0 // \"admin\"",
+      "defined_out": [
+        "\"admin\"",
+        "0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "0",
+        "\"admin\""
+      ]
+    },
+    "193": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "194": {
+      "error": "check self.admin exists",
+      "op": "assert // check self.admin exists",
+      "stack_out": [
+        "tmp%0#0",
+        "maybe_value%0#0"
+      ]
+    },
+    "195": {
+      "op": "==",
+      "defined_out": [
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%1#0"
+      ]
+    },
+    "196": {
+      "error": "Only admin can opt-in to assets",
+      "op": "assert // Only admin can opt-in to assets",
+      "stack_out": []
+    },
+    "197": {
+      "op": "itxn_begin"
+    },
+    "198": {
+      "op": "global CurrentApplicationAddress",
+      "defined_out": [
+        "inner_txn_params%0%%param_AssetReceiver_idx_0#0"
+      ],
+      "stack_out": [
+        "inner_txn_params%0%%param_AssetReceiver_idx_0#0"
+      ]
+    },
+    "200": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "inner_txn_params%0%%param_AssetReceiver_idx_0#0",
+        "0"
+      ]
+    },
+    "201": {
+      "op": "itxn_field AssetAmount",
+      "stack_out": [
+        "inner_txn_params%0%%param_AssetReceiver_idx_0#0"
+      ]
+    },
+    "203": {
+      "op": "itxn_field AssetReceiver",
+      "stack_out": []
+    },
+    "205": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "asset#0 (copy)"
+      ],
+      "stack_out": [
+        "asset#0 (copy)"
+      ]
+    },
+    "207": {
+      "op": "itxn_field XferAsset",
+      "stack_out": []
+    },
+    "209": {
+      "op": "intc_2 // axfer",
+      "defined_out": [
+        "axfer"
+      ],
+      "stack_out": [
+        "axfer"
+      ]
+    },
+    "210": {
+      "op": "itxn_field TypeEnum",
+      "stack_out": []
+    },
+    "212": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "0"
+      ]
+    },
+    "213": {
+      "op": "itxn_field Fee",
+      "stack_out": []
+    },
+    "215": {
+      "op": "itxn_submit"
+    },
+    "216": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "217": {
+      "subroutine": "smart_contracts.pay_stream.contract.PayStream.deposit",
+      "params": {
+        "txn#0": "uint64"
+      },
+      "block": "deposit",
+      "stack_in": [],
+      "op": "proto 1 0"
+    },
+    "220": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "txn#0 (copy)"
+      ],
+      "stack_out": [
+        "txn#0 (copy)"
+      ]
+    },
+    "222": {
+      "op": "gtxns AssetReceiver",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "224": {
+      "op": "global CurrentApplicationAddress",
+      "defined_out": [
+        "tmp%0#0",
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "tmp%1#0"
+      ]
+    },
+    "226": {
+      "op": "==",
+      "defined_out": [
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%2#0"
+      ]
+    },
+    "227": {
+      "error": "Deposit must be to this contract",
+      "op": "assert // Deposit must be to this contract",
+      "stack_out": []
+    },
+    "228": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "0"
+      ],
+      "stack_out": [
+        "0"
+      ]
+    },
+    "229": {
+      "op": "bytec_1 // \"total_deposited\"",
+      "defined_out": [
+        "\"total_deposited\"",
+        "0"
+      ],
+      "stack_out": [
+        "0",
+        "\"total_deposited\""
+      ]
+    },
+    "230": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "231": {
+      "error": "check self.total_deposited exists",
+      "op": "assert // check self.total_deposited exists",
+      "stack_out": [
+        "maybe_value%0#0"
+      ]
+    },
+    "232": {
+      "op": "frame_dig -1",
+      "stack_out": [
+        "maybe_value%0#0",
+        "txn#0 (copy)"
+      ]
+    },
+    "234": {
+      "op": "gtxns AssetAmount",
+      "defined_out": [
+        "maybe_value%0#0",
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "tmp%3#0"
+      ]
+    },
+    "236": {
+      "op": "+",
+      "defined_out": [
+        "new_state_value%0#0"
+      ],
+      "stack_out": [
+        "new_state_value%0#0"
+      ]
+    },
+    "237": {
+      "op": "bytec_1 // \"total_deposited\"",
+      "stack_out": [
+        "new_state_value%0#0",
+        "\"total_deposited\""
+      ]
+    },
+    "238": {
+      "op": "swap",
+      "stack_out": [
+        "\"total_deposited\"",
+        "new_state_value%0#0"
+      ]
+    },
+    "239": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "240": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "241": {
+      "subroutine": "smart_contracts.pay_stream.contract.PayStream.payout",
+      "params": {
+        "recipient#0": "bytes",
+        "asset#0": "uint64",
+        "amount#0": "uint64"
+      },
+      "block": "payout",
+      "stack_in": [],
+      "op": "proto 3 0"
+    },
+    "244": {
+      "op": "txn Sender",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "246": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "0"
+      ]
+    },
+    "247": {
+      "op": "bytec_0 // \"admin\"",
+      "defined_out": [
+        "\"admin\"",
+        "0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "0",
+        "\"admin\""
+      ]
+    },
+    "248": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "249": {
+      "error": "check self.admin exists",
+      "op": "assert // check self.admin exists",
+      "stack_out": [
+        "tmp%0#0",
+        "maybe_value%0#0"
+      ]
+    },
+    "250": {
+      "op": "==",
+      "defined_out": [
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%1#0"
+      ]
+    },
+    "251": {
+      "error": "Only admin can initiate payouts",
+      "op": "assert // Only admin can initiate payouts",
+      "stack_out": []
+    },
+    "252": {
+      "op": "itxn_begin"
+    },
+    "253": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "amount#0 (copy)"
+      ],
+      "stack_out": [
+        "amount#0 (copy)"
+      ]
+    },
+    "255": {
+      "op": "itxn_field AssetAmount",
+      "stack_out": []
+    },
+    "257": {
+      "op": "frame_dig -3",
+      "defined_out": [
+        "recipient#0 (copy)"
+      ],
+      "stack_out": [
+        "recipient#0 (copy)"
+      ]
+    },
+    "259": {
+      "op": "itxn_field AssetReceiver",
+      "stack_out": []
+    },
+    "261": {
+      "op": "frame_dig -2",
+      "defined_out": [
+        "asset#0 (copy)"
+      ],
+      "stack_out": [
+        "asset#0 (copy)"
+      ]
+    },
+    "263": {
+      "op": "itxn_field XferAsset",
+      "stack_out": []
+    },
+    "265": {
+      "op": "intc_2 // axfer",
+      "defined_out": [
+        "axfer"
+      ],
+      "stack_out": [
+        "axfer"
+      ]
+    },
+    "266": {
+      "op": "itxn_field TypeEnum",
+      "stack_out": []
+    },
+    "268": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "0"
+      ]
+    },
+    "269": {
+      "op": "itxn_field Fee",
+      "stack_out": []
+    },
+    "271": {
+      "op": "itxn_submit"
+    },
+    "272": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "273": {
+      "subroutine": "smart_contracts.pay_stream.contract.PayStream.withdraw_admin",
+      "params": {
+        "asset#0": "uint64",
+        "amount#0": "uint64"
+      },
+      "block": "withdraw_admin",
+      "stack_in": [],
+      "op": "proto 2 0"
+    },
+    "276": {
+      "op": "txn Sender",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "278": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "0"
+      ]
+    },
+    "279": {
+      "op": "bytec_0 // \"admin\"",
+      "defined_out": [
+        "\"admin\"",
+        "0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "0",
+        "\"admin\""
+      ]
+    },
+    "280": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "281": {
+      "error": "check self.admin exists",
+      "op": "assert // check self.admin exists",
+      "stack_out": [
+        "tmp%0#0",
+        "maybe_value%0#0"
+      ]
+    },
+    "282": {
+      "op": "==",
+      "defined_out": [
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%1#0"
+      ]
+    },
+    "283": {
+      "error": "Only admin can withdraw",
+      "op": "assert // Only admin can withdraw",
+      "stack_out": []
+    },
+    "284": {
+      "op": "itxn_begin"
+    },
+    "285": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "0"
+      ]
+    },
+    "286": {
+      "op": "bytec_0 // \"admin\"",
+      "stack_out": [
+        "0",
+        "\"admin\""
+      ]
+    },
+    "287": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%1#0",
+        "maybe_value%1#0"
+      ],
+      "stack_out": [
+        "maybe_value%1#0",
+        "maybe_exists%1#0"
+      ]
+    },
+    "288": {
+      "error": "check self.admin exists",
+      "op": "assert // check self.admin exists",
+      "stack_out": [
+        "maybe_value%1#0"
+      ]
+    },
+    "289": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "amount#0 (copy)",
+        "maybe_value%1#0"
+      ],
+      "stack_out": [
+        "maybe_value%1#0",
+        "amount#0 (copy)"
+      ]
+    },
+    "291": {
+      "op": "itxn_field AssetAmount",
+      "stack_out": [
+        "maybe_value%1#0"
+      ]
+    },
+    "293": {
+      "op": "itxn_field AssetReceiver",
+      "stack_out": []
+    },
+    "295": {
+      "op": "frame_dig -2",
+      "defined_out": [
+        "asset#0 (copy)"
+      ],
+      "stack_out": [
+        "asset#0 (copy)"
+      ]
+    },
+    "297": {
+      "op": "itxn_field XferAsset",
+      "stack_out": []
+    },
+    "299": {
+      "op": "intc_2 // axfer",
+      "defined_out": [
+        "axfer"
+      ],
+      "stack_out": [
+        "axfer"
+      ]
+    },
+    "300": {
+      "op": "itxn_field TypeEnum",
+      "stack_out": []
+    },
+    "302": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "0"
+      ]
+    },
+    "303": {
+      "op": "itxn_field Fee",
+      "stack_out": []
+    },
+    "305": {
+      "op": "itxn_submit"
+    },
+    "306": {
+      "retsub": true,
+      "op": "retsub"
+    }
+  }
+}
