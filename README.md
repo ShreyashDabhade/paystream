@@ -1,4 +1,4 @@
-# PayStream MVP
+# PayStream
 
 PayStream is an Algorand-based payroll MVP for cross-border contractor payouts using USDCa. The app lets an employer deploy or attach to a PayStream vault, deposit USDCa, and execute payouts to contractor wallets with a simple operator dashboard.
 
